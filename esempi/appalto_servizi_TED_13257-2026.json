@@ -1,0 +1,36 @@
+{
+  "fonte": "TED - Tenders Electronic Daily",
+  "categoria": "Appalti Pubblici - Servizi",
+  "numero_pubblicazione": "13257-2026",
+  "data_pubblicazione": "2026-01-07",
+  "titolo_ita": "Italia - Seminari di formazione - Guidelines development training",
+  "titolo_eng": "Italy - Training seminars - Guidelines development training",
+  "ente_appaltante": "European Commission, DG JRC - Joint Research Centre",
+  "sede_ente": "Italia (Ispra, VA)",
+  "tipo_procedura": "open",
+  "codici_cpv": [
+    "80522000 - Seminari di formazione",
+    "73200000 - Consulenza nel campo della ricerca e dello sviluppo",
+    "79951000 - Organizzazione di seminari"
+  ],
+  "valore_stimato_eur": 400000,
+  "descrizione": "Guidelines development training for EC staff and external experts, working group members on breast, colorectal, and cervical cancer.",
+  "links": {
+    "html_ita": "https://ted.europa.eu/it/notice/-/detail/13257-2026",
+    "pdf_ita": "https://ted.europa.eu/it/notice/13257-2026/pdf",
+    "xml": "https://ted.europa.eu/en/notice/13257-2026/xml"
+  },
+  "schema_normalizzato": {
+    "id": "TED-13257-2026",
+    "titolo": "Guidelines development training (cancro mammella, colon-retto, cervice)",
+    "ente": "JRC - Joint Research Centre",
+    "paese": "IT",
+    "importo": 400000,
+    "valuta": "EUR",
+    "data_pubblicazione": "2026-01-07",
+    "scadenza": null,
+    "tipo": "appalto_servizi",
+    "settori": ["formazione", "sanità", "ricerca_medica"],
+    "destinatari": ["aziende", "università", "enti_formazione"]
+  }
+}

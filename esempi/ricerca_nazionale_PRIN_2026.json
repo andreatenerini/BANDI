@@ -1,0 +1,62 @@
+{
+  "fonte": "MUR - Ministero dell'Università e della Ricerca",
+  "categoria": "Progetti di Ricerca Nazionale",
+  "riferimento": "PRIN 2026 - Decreto Direttoriale n. 2298 del 10 Aprile 2026",
+  "titolo": "PRIN 2026 - Progetti di Rilevante Interesse Nazionale",
+  "ente_erogatore": "Ministero dell'Università e della Ricerca (MUR)",
+  "portale": "https://prin.mur.gov.it/",
+  "dotazione_totale_eur": 259889354,
+  "importo_per_progetto": {
+    "minimo": 1000000,
+    "massimo": 1200000,
+    "valuta": "EUR"
+  },
+  "finestre_temporali": {
+    "apertura_domande": "2026-04-17T15:00:00",
+    "chiusura_domande": "2026-06-01T15:00:00"
+  },
+  "aree_scientifiche": {
+    "LS": {
+      "nome": "Life Sciences",
+      "quota_percentuale": 35
+    },
+    "PE": {
+      "nome": "Physical Sciences and Engineering",
+      "quota_percentuale": 35
+    },
+    "SH": {
+      "nome": "Social Sciences and Humanities",
+      "quota_percentuale": 30
+    }
+  },
+  "requisiti_progetto": {
+    "durata_anni": 3,
+    "unita_ricerca": "da 4 a 6, provenienti da istituzioni diverse",
+    "ruolo_coordinatore": "Principal Investigator (PI)",
+    "riserva_under40": "15% delle risorse per PI under 40 anni"
+  },
+  "requisiti_soggettivi": {
+    "beneficiari": [
+      "Università italiane",
+      "Enti pubblici di ricerca",
+      "IRCCS",
+      "Istituti di settore"
+    ],
+    "accesso": "LoginMiur (CINECA)"
+  },
+  "schema_normalizzato": {
+    "id": "MUR-PRIN-2026",
+    "titolo": "PRIN 2026 - Progetti di Rilevante Interesse Nazionale",
+    "ente": "MUR",
+    "paese": "IT",
+    "importo_totale": 259889354,
+    "importo_progetto_min": 1000000,
+    "importo_progetto_max": 1200000,
+    "valuta": "EUR",
+    "data_pubblicazione": "2026-04-10",
+    "scadenza": "2026-06-01",
+    "tipo": "ricerca_nazionale",
+    "settori": ["scienze_vita", "fisica_ingegneria", "scienze_sociali_umanistiche"],
+    "destinatari": ["università", "enti_ricerca", "ricercatori"]
+  }
+}

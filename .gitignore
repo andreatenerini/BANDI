@@ -1,0 +1,34 @@
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Database (4MB+ blob, contiene dati scaricati — non per git)
+data/db/*.db
+data/db/*.db-journal
+data/db/*.db-wal
+data/db/*.db-shm
+
+# Dati raw scaricati (CSV ANAC, JSON OC, ecc.)
+data/raw/
+
+# Archivi compressi
+*.csv.zip
+*.zip
+
+# Output rigenerabile
+BANDI_Sistema_Analisi.pdf
+
+# Configurazione locale Claude Code
+.claude/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,94 @@
+{
+  "fonte": "Invitalia - Agenzia nazionale per l'attrazione degli investimenti",
+  "categoria": "Incentivi alle Imprese",
+  "riferimento": "Smart&Start Italia - D.Lgs. 179/2012 art. 25",
+  "titolo": "Smart&Start Italia",
+  "ente_erogatore": "Invitalia per conto del MIMIT",
+  "portale": "https://www.invitalia.it/incentivi-e-strumenti/smartstart-italia",
+  "stato": "aperto a sportello (senza scadenza fissa, fino ad esaurimento fondi)",
+  "dotazione_2026_eur": 700000000,
+  "piano_aziendale": {
+    "spese_minime": 100000,
+    "spese_massime": 1500000,
+    "valuta": "EUR",
+    "durata_mesi": 24
+  },
+  "agevolazioni": {
+    "finanziamento_tasso_zero": {
+      "percentuale_standard": 80,
+      "percentuale_maggiorata": 90,
+      "condizioni_maggiorazione": [
+        "Startup costituita interamente da donne e/o under 36",
+        "Socio con dottorato conseguito entro 6 anni + esperienza internazionale ricerca/didattica >= 3 anni"
+      ],
+      "durata_rimborso_anni": 10,
+      "inizio_rimborso": "12 mesi dopo ultima erogazione"
+    },
+    "contributo_fondo_perduto": {
+      "percentuale": 30,
+      "base_calcolo": "importo finanziato",
+      "aree_eleggibili": [
+        "Abruzzo", "Basilicata", "Calabria", "Campania",
+        "Molise", "Puglia", "Sardegna", "Sicilia",
+        "Cratere sismico Centro Italia"
+      ]
+    }
+  },
+  "spese_ammissibili": {
+    "investimenti": [
+      "Macchinari, impianti, attrezzature nuove",
+      "Hardware e software",
+      "Brevetti, marchi, licenze",
+      "Certificazioni e know-how tecnologico",
+      "Consulenze tecnologiche specializzate",
+      "Sviluppo soluzioni IT e tecnologiche",
+      "Marketing e web marketing"
+    ],
+    "costi_operativi": [
+      "Materie prime",
+      "Servizi di gestione aziendale",
+      "Hosting e housing",
+      "Salari del personale",
+      "Servizi di incubazione e accelerazione"
+    ]
+  },
+  "requisiti_beneficiario": {
+    "forma_giuridica": "Startup innovativa (art. 25 D.Lgs. 179/2012)",
+    "dimensione": "Micro o piccola impresa",
+    "anzianita_max_mesi": 60,
+    "registrazione": "Sezione speciale del Registro delle Imprese",
+    "sede": "Territorio italiano",
+    "anche_ammessi": [
+      "Team di persone fisiche che intendono costituire startup",
+      "Imprese straniere che si impegnano a stabilire sede in Italia"
+    ]
+  },
+  "requisiti_progetto": {
+    "caratteristiche_obbligatorie": [
+      "Significativo contenuto tecnologico e innovativo",
+      "Focus su economia digitale, AI, blockchain, IoT",
+      "Valorizzazione economica di risultati di ricerca pubblica o privata"
+    ]
+  },
+  "risultati_storici": {
+    "startup_finanziate": 1549,
+    "investimenti_attivati_eur": 800000000,
+    "incentivi_concessi_eur": 618000000,
+    "riferimento_data": "2024-02-01"
+  },
+  "schema_normalizzato": {
+    "id": "INVITALIA-SMARTSTART-2026",
+    "titolo": "Smart&Start Italia",
+    "ente": "Invitalia / MIMIT",
+    "paese": "IT",
+    "importo_progetto_min": 100000,
+    "importo_progetto_max": 1500000,
+    "valuta": "EUR",
+    "data_pubblicazione": "2026-01-01",
+    "scadenza": null,
+    "tipo": "incentivo_imprese",
+    "settori": ["tecnologia", "innovazione", "digitale", "AI", "blockchain", "IoT"],
+    "destinatari": ["startup_innovative", "imprese_micro_piccole"],
+    "tipo_agevolazione": ["finanziamento_tasso_zero", "fondo_perduto"]
+  }
+}

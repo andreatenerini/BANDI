@@ -1,0 +1,8 @@
+# BANDI — dipendenze runtime
+# Generato analizzando gli import effettivi nel codice (scraper/, entity/, matching/, genera_pdf.py).
+# Versioni minime allineate a quelle attualmente installate e funzionanti.
+
+requests>=2.33.0          # HTTP client (TED, OpenCoesione, MUR, OpenAlex, CORDIS, GitHub, ANAC)
+beautifulsoup4>=4.14.0    # parser HTML per scraper/mur_scraper.py
+lxml>=6.1.0               # parser veloce usato da BeautifulSoup
+reportlab>=4.5.0          # generazione PDF in genera_pdf.py

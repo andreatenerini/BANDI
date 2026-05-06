@@ -1,0 +1,35 @@
+{
+  "fonte": "TED - Tenders Electronic Daily",
+  "categoria": "Appalti Pubblici - Servizi",
+  "numero_pubblicazione": "7451-2026",
+  "data_pubblicazione": "2026-01-05",
+  "titolo_ita": "Italia - Servizi statistici - Statistical methods in ecotoxicology (hypothesis testing)",
+  "titolo_eng": "Italy - Statistical services - Statistical methods in ecotoxicology (hypothesis testing)",
+  "ente_appaltante": "European Food Safety Authority (EFSA)",
+  "sede_ente": "Italia",
+  "tipo_procedura": "open",
+  "codici_cpv": [
+    "79330000 - Servizi statistici",
+    "73110000 - Servizi di ricerca"
+  ],
+  "valore_stimato_eur": 720000,
+  "descrizione": "This call focuses on methods for hypothesis testing and aims to provide methods, tools and training for harmonized, unbiased data analysis beyond what covered by the current guidance documents.",
+  "links": {
+    "html_ita": "https://ted.europa.eu/it/notice/-/detail/7451-2026",
+    "pdf_ita": "https://ted.europa.eu/it/notice/7451-2026/pdf",
+    "xml": "https://ted.europa.eu/en/notice/7451-2026/xml"
+  },
+  "schema_normalizzato": {
+    "id": "TED-7451-2026",
+    "titolo": "Metodi statistici in ecotossicologia",
+    "ente": "EFSA",
+    "paese": "IT",
+    "importo": 720000,
+    "valuta": "EUR",
+    "data_pubblicazione": "2026-01-05",
+    "scadenza": null,
+    "tipo": "appalto_servizi",
+    "settori": ["statistica", "ricerca", "ecotossicologia"],
+    "destinatari": ["aziende", "università", "centri_ricerca"]
+  }
+}
