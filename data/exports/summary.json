@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-05-06T13:06:36.623715Z",
+  "generated_at": "2026-05-07T12:59:39.993312+00:00",
   "schema_version": 1,
   "totals": {
-    "bandi": 333,
-    "entita": 307,
-    "segnali": 2392,
-    "match_scores": 5320
+    "bandi": 1064,
+    "entita": 533,
+    "segnali": 3703,
+    "match_scores": 14960
   },
   "bandi_per_fonte_stato": [
     {
@@ -16,12 +16,12 @@
     {
       "fonte": "OpenCoesione",
       "stato": "attivo",
-      "n": 214
+      "n": 335
     },
     {
       "fonte": "OpenCoesione",
       "stato": "scaduto",
-      "n": 5
+      "n": 105
     },
     {
       "fonte": "TED",
@@ -31,18 +31,18 @@
     {
       "fonte": "TED",
       "stato": "attivo",
-      "n": 50
+      "n": 411
     },
     {
       "fonte": "TED",
       "stato": "scaduto",
-      "n": 18
+      "n": 167
     }
   ],
   "entita_per_tipo": [
     {
       "tipo": "azienda",
-      "n": 196
+      "n": 422
     },
     {
       "tipo": "ricercatore",
@@ -59,24 +59,24 @@
   ],
   "segnali_per_tipo": [
     {
+      "tipo": "oc_tema",
+      "n": 1161
+    },
+    {
       "tipo": "openalex_concept",
       "n": 770
     },
     {
-      "tipo": "oc_tema",
-      "n": 556
-    },
-    {
       "tipo": "oc_fondi_strutturali",
-      "n": 243
+      "n": 489
     },
     {
       "tipo": "oc_costo_pubblico_tot",
-      "n": 147
+      "n": 377
     },
     {
       "tipo": "oc_n_progetti",
-      "n": 147
+      "n": 377
     },
     {
       "tipo": "oa_citations",
@@ -130,15 +130,15 @@
   "score_distribution": [
     {
       "bracket": "0.70+",
-      "n": 28
+      "n": 166
     },
     {
       "bracket": "0.50-0.70",
-      "n": 1287
+      "n": 9983
     },
     {
       "bracket": "0.30-0.50",
-      "n": 4005
+      "n": 4811
     },
     {
       "bracket": "0.15-0.30",
@@ -146,10 +146,10 @@
     }
   ],
   "geo_coverage": {
-    "bandi_con_regione": 111,
-    "bandi_totali": 333,
-    "entita_con_sede": 68,
-    "entita_totali": 307
+    "bandi_con_regione": 261,
+    "bandi_totali": 1064,
+    "entita_con_sede": 113,
+    "entita_totali": 533
   },
   "matcher_weights": {
     "tipo": 0.3,
