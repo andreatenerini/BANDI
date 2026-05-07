@@ -317,4 +317,4 @@ def import_all_temi(
 
 if __name__ == "__main__":
     init_db()
-    import_all_temi(max_per_tema=100)
+    import_all_temi(max_per_tema=1000)

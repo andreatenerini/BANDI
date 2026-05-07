@@ -247,16 +247,23 @@ def scrape_ted(
 
 
 # Preset query utili ──────────────────────────────────────────────────────────
+# Mappa CPV → nome query: i CPV sono prefissi a 2 cifre della classificazione UE.
+# Vedi https://simap.ted.europa.eu/cpv per l'elenco completo.
 PRESET_QUERIES = {
-    "it_servizi":     "buyer-country=ITA",
-    "it_ricerca":     "buyer-country=ITA AND classification-cpv=73000000",
-    "it_it_services": "buyer-country=ITA AND classification-cpv=72000000",
-    "eu_ricerca":     "classification-cpv=73000000",
-    "eu_formazione":  "classification-cpv=80000000",
+    "it_servizi":      "buyer-country=ITA",
+    "it_ricerca":      "buyer-country=ITA AND classification-cpv=73000000",
+    "it_it_services":  "buyer-country=ITA AND classification-cpv=72000000",
+    "it_consulenza":   "buyer-country=ITA AND classification-cpv=71000000",
+    "it_costruzioni":  "buyer-country=ITA AND classification-cpv=45000000",
+    "it_sanita":       "buyer-country=ITA AND classification-cpv=85000000",
+    "it_ambiente":     "buyer-country=ITA AND classification-cpv=90000000",
+    "it_formazione":   "buyer-country=ITA AND classification-cpv=80000000",
+    "eu_ricerca":      "classification-cpv=73000000",
+    "eu_formazione":   "classification-cpv=80000000",
 }
 
 if __name__ == "__main__":
     init_db()
     for name, q in PRESET_QUERIES.items():
         print(f"\n-- Query: {name} --")
-        scrape_ted(query=q, days_back=60, max_pages=5)
+        scrape_ted(query=q, days_back=365, max_pages=100)

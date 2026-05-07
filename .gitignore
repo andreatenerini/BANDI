@@ -13,6 +13,9 @@ data/db/*.db-shm
 # Dati raw scaricati (CSV ANAC, JSON OC, ecc.)
 data/raw/
 
+# Log di esecuzione delle pipeline (generati ad ogni run, non versionare)
+data/logs/
+
 # Archivi compressi
 *.csv.zip
 *.zip

@@ -284,4 +284,4 @@ def scrape_opencoesione(
 
 if __name__ == "__main__":
     init_db()
-    scrape_opencoesione(max_per_tema=50)
+    scrape_opencoesione(max_per_tema=2000)
