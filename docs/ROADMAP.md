@@ -81,65 +81,77 @@ di scraping. Solo aumentare i parametri.
 
 ---
 
-## Fase 2 — Sbloccare ANAC con Playwright
+## Fase 2 — ANAC OCDS streaming (NON Playwright)
 
-**Obiettivo**: aggirare il WAF e scaricare i CSV bulk OCDS di ANAC, popolando
-`bandi` (gare attive) e soprattutto `contratti_vinti` (oggi a 0 — segnale forte
-per le aziende).
+**Obiettivo**: scaricare i dati ANAC OCDS popolando `bandi` (gare attive) e
+soprattutto `contratti_vinti` (oggi a 0 — segnale forte per le aziende).
 
-### Approccio tecnico
+### Storia di questa fase
 
-Playwright avvia un browser Chromium reale (headless o con UI), navigando il
-portale come farebbe un umano. Il WAF distingue browser veri da `requests` via
-TLS fingerprint, ordine header HTTP/2, presenza di JS execution, cookie
-challenge. Playwright supera tutto questo.
+Versione originale del documento prevedeva Playwright + chromium per superare
+il WAF. **Sbagliato**: il WAF ANAC è situazionale, non è il blocker principale.
+Il vero problema è scoprire i dataset giusti perché il portale è stato
+ristrutturato (gli URL CSV hardcoded nel vecchio `anac_scraper.py` rispondono
+404).
 
-### Codice da scrivere
+Vedi `memory/reference_anac_portale_2026.md` per dettagli.
 
-```
-scraper/anac_playwright.py    # nuovo file
-  - apre browser headless chromium
-  - naviga a https://dati.anticorruzione.it/opendata
-  - cerca dataset "appalti_ocds_<anno>"
-  - clicca download del CSV
-  - aspetta che il file sia completo
-  - sposta in data/raw/anac/
-```
+### Approccio attuale
 
-### Dipendenze
+1. **Discovery**: parsare `https://dati.anticorruzione.it/opendata/catalog.jsonld`
+   (DCAT JSON-LD, 2.8 MB, niente WAF se chiamato sporadicamente). 1.793 nodi,
+   ~10 dataset OCDS per anno.
+2. **Selezione dataset corretto**: il dataset `OCDS appalti ordinari anno YYYY`
+   contiene SOLO **affidamenti già aggiudicati** (`tag=['tender','award']`)
+   senza supplier (campo vuoto, parties solo buyer/payer). NON serve né per
+   bandi attivi né per aggiudicatari. **Cercare invece i dataset
+   `Partecipanti`, `Aggiudicatari`, `Avvisi e Bandi di gara`** (vedi
+   anac_explorer.py).
+3. **Streaming**: file mensili JSON OCDS pesano ~700 MB-1.2 GB ciascuno,
+   parsare con `ijson` (`releases.item`) per non saturare la memoria.
+4. **Filtro al volo**: tener solo release con `tag` contiene `tender` SENZA
+   `award` (= bandi non ancora aggiudicati).
 
-```
-pip install playwright
-playwright install chromium       # ~150 MB di download
-```
+### Implementazione attuale
 
-### Volume dati
+- `scraper/anac_v2.py` — discovery DCAT + streaming JSON (struttura corretta
+  ma logica filtri sbagliata: cercava in `awards.suppliers` che è sempre vuoto
+  in questo dataset)
+- `scripts/anac_sample_stats.py` — diagnostica: dump distribuzione tag/status/
+  parties roles su un campione
+- `scripts/inspect_anac_release.py` — ispeziona la struttura di una singola
+  release
 
-ANAC pubblica circa **1 milione di procedure/anno**. Il CSV `appalti_ocds_2026.csv`
-è ~500 MB compresso. Importarlo tutto satura il DB. Strategia:
-- Limitare a ultimi N giorni di pubblicazione (`--days-back 90`)
-- Filtrare per `tender.status='active'` e `tenderPeriod.endDate > today`
-- Frammentare l'import in chunk con commit ogni 10.000 righe
+### Cosa serve completare
+
+1. Scrivere `scraper/anac_explorer.py` che dumpa TUTTI i dataset del catalog
+   con il loro metadata (tipo, formato, n. distribuzioni). Una sola chiamata
+   per non scatenare il WAF.
+2. Identificare il dataset giusto per **bandi attivi** (probabilmente
+   `Avvisi e Bandi di gara` se esiste).
+3. Identificare il dataset giusto per **aggiudicatari**: probabilmente
+   `Partecipanti` espone le imprese che hanno presentato offerta + chi ha
+   vinto.
+4. Riscrivere il filter logic in `anac_v2.py` per il nuovo dataset.
+
+### Volume dati (revised)
+
+Sconosciuto finché non si esplorano i dataset alternativi. Stima per
+"Partecipanti": probabilmente ~100-500 MB/anno (testo + identificativi).
 
 ### Risultato atteso
 
-- Bandi ANAC attivi: **~30.000-50.000**
-- Aggiudicatari (per `entity/anac_winners.py`): **~500.000+** (dati storici 2-3 anni)
-- Segnali `cpv_vinto` su aziende esistenti: ~10x boost al match per le aziende
-  che hanno storia di contratti pubblici
-
-### Effort di implementazione
-
-**Medio (3-5 ore)**: installazione Playwright, scrittura scraper, gestione
-download, import CSV, test su anno corrente.
+Difficile stimarlo prima di trovare il dataset giusto. Realisticamente:
+- Bandi attivi ANAC: 5.000-30.000
+- Aggiudicatari/imprese: 100.000-500.000
+- Contratti_vinti: alcuni 100k
 
 ### Rischi
 
-- Playwright potrebbe essere a sua volta detettato (improbabile, ANAC non è
-  particolarmente sofisticato)
-- Cambio della struttura HTML del portale rompe lo scraper (fragile, ma
-  ricuperabile)
-- Volume dati: 500 MB CSV importato tutto rallenta i match. Va filtrato.
+- WAF situazionale dopo download grossi: rispettare backoff, non fare
+  downloads multipli ravvicinati
+- Il catalog cambia formato senza preavviso (è già successo dal 2024)
+- Alcuni dataset potrebbero non esistere ancora per il 2026
 
 ---
 

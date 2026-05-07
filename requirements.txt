@@ -6,3 +6,4 @@ requests>=2.33.0          # HTTP client (TED, OpenCoesione, MUR, OpenAlex, CORDI
 beautifulsoup4>=4.14.0    # parser HTML per scraper/mur_scraper.py
 lxml>=6.1.0               # parser veloce usato da BeautifulSoup
 reportlab>=4.5.0          # generazione PDF in genera_pdf.py
+ijson>=3.5.0              # streaming JSON parser (file ANAC OCDS ~1 GB)
